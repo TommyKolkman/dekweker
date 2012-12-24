@@ -12,10 +12,11 @@ Ext.define('dekweker.view.Main', {
                 xtype : 'toolbar',
                 docked: 'top',
                 title: 'de kweker',
-                cls: 'titlebar'
+                cls: 'titlebar',
+                height:50
             },
             {   title:'folders',
-                xtype: 'folderview'
+                xtype: 'detailview'
             },
             {
                 title: 'Bel ons'

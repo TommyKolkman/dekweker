@@ -12,10 +12,12 @@ Ext.application({
         'Ext.MessageBox'
     ],
 
-    views: ['Main','Folder'],
+
+    views: ['Main','Folder','Detail'],
     controllers: [],
     models:['Folder'],
     stores:['Folders'],
+
 
     icon: {
         '57': 'resources/icons/Icon.png',
