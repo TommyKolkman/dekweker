@@ -13,6 +13,9 @@ Ext.application({
     ],
 
     views: ['Main','Folder'],
+    controllers: [],
+    models:['Folder'],
+    stores:['Folders'],
 
     icon: {
         '57': 'resources/icons/Icon.png',
