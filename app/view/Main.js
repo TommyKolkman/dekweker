@@ -14,6 +14,9 @@ Ext.define('dekweker.view.Main', {
                 title: 'de kweker',
                 cls: 'titlebar'
             },
+            {   title:'folders',
+                xtype: 'folderview'
+            },
             {
                 title: 'Bel ons'
             },
