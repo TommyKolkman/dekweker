@@ -5,6 +5,7 @@ Ext.define('dekweker.view.Folder', {
 		fullscreen: false,
 		itemTpl:'<img src="{image}" width:"0" height="100%"/>',
 		store:'Folders',
+		cls:'horizontalSlider'
 		//inline: { wrap: false },
 		// scrollable: {
 		// 	direction: 'horizontal',
