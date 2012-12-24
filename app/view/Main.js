@@ -16,7 +16,7 @@ Ext.define('dekweker.view.Main', {
                 height:50
             },
             {   title:'folders',
-                xtype: 'detailview'
+                xtype: 'folderview'
             },
             {
                 title: 'Bel ons'

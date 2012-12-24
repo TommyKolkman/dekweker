@@ -14,7 +14,7 @@ Ext.application({
 
 
     views: ['Main','Folder','Detail'],
-    controllers: [],
+    controllers: ['Controller'],
     models:['Folder'],
     stores:['Folders'],
 
