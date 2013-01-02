@@ -3,6 +3,7 @@ Ext.define('dekweker.view.Detail', {
 	xtype:'detailview',
 
 	config:{
+		cls:'modal',
 		centered:true,
 		height: '90%',
 		width: '90%',
@@ -11,7 +12,22 @@ Ext.define('dekweker.view.Detail', {
 		scrollable:{
 			direction:'both'
 		},
-		html:'<img src="http://www.symmetrymagazine.org/sites/default/files/breaking/wp-content/uploads/2010/11/alicelead3.jpg"/>'
+		listeners:{
+			painted:function(){
+				this.fireEvent('popupDrawn', this);
+			},
+			hide:function(){
+				this.destroy();
+			},
+			add:function(){
+				this.fireEvent('setScroll', this);
+			}
+		},
+		items:[{
+			id: 'folderImage',
+			html:'loading...',
+		}]
+		
 	}
 
 });
