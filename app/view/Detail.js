@@ -15,6 +15,7 @@ Ext.define('dekweker.view.Detail', {
 		listeners:{
 			painted:function(){
 				this.fireEvent('popupDrawn', this);
+				this.fireEvent('setScroll', this);
 			},
 			hide:function(){
 				this.destroy();
@@ -25,7 +26,7 @@ Ext.define('dekweker.view.Detail', {
 		},
 		items:[{
 			id: 'folderImage',
-			html:'loading...',
+			html:'loading...'
 		}]
 		
 	}
