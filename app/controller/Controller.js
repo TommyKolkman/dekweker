@@ -11,6 +11,13 @@ Ext.define('dekweker.controller.Controller', {
             }
         }
     },
+    init: function() {
+      Ext.Viewport.on(['orientationchange','resize'], 'handleOrientationChange', this, {buffer: 50 });
+    },
+    handleOrientationChange: function(){
+      //Reload Folders store, to reposition them according to the viewport size.
+      Ext.StoreMgr.get('Folders').load();
+    },
     onFolderSelect:function( list, index, target, record, event ){
        //Open modal with the correct folder
        var coordinatesEvent = {x: event.pageX, y:event.pageY};

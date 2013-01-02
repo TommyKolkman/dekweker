@@ -6,7 +6,6 @@ Ext.define('dekweker.view.Main', {
     ],
     config: {
         tabBarPosition: 'bottom',
-
         items: [
             {
                 xtype : 'toolbar',
@@ -16,7 +15,11 @@ Ext.define('dekweker.view.Main', {
                 height:50
             },
             {   title:'folders',
-                xtype: 'folderview'
+                xtype: 'folderview',
+                scrollable: 'horizontal',
+                inline: {
+                    wrap: false
+                }
             },
             {
                 title: 'Bel ons'

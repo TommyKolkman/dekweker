@@ -3,4 +3,4 @@ Ext.define('dekweker.model.Folder',{
 	config:{
 		fields:['name','image']
 	}
-})
+});
