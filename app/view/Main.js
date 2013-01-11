@@ -40,7 +40,10 @@ Ext.define('dekweker.view.Main', {
                 id:'folder',
                 title:'folders',
                 xtype: 'folderview',
-                scrollable: 'horizontal'
+                scrollable: 'horizontal',
+                inline: {
+					wrap: false
+				}
             },
             {
                 id:'call',
@@ -61,7 +64,8 @@ Ext.define('dekweker.view.Main', {
             {
                 id:'route',
                 title: 'Route',
-                iconCls: 'routeIcon'
+                iconCls: 'routeIcon',
+                xtype: 'mapview'
             }
         ]
     }
