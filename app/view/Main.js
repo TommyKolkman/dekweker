@@ -17,10 +17,7 @@ Ext.define('dekweker.view.Main', {
             },
             {   title:'folders',
                 xtype: 'folderview',
-                scrollable: 'horizontal',
-                inline: {
-                    wrap: false
-                }
+                scrollable: 'horizontal'
             },
             {
                 title: 'Bel ons',
