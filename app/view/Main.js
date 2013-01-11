@@ -6,8 +6,29 @@ Ext.define('dekweker.view.Main', {
     ],
     config: {
         tabBarPosition: 'bottom',
+        listeners:{
+            activeitemchange: function( ob, value, oldValue, eOpts ){
+                //Check which card we are gonna switch to
+                if(value.id!=='folder' && value.id !=='route'){
+                    this.setActiveItem(0);
+                    
+                    //Handling of the buttons in the menu
+                    if(value.id=='call'){
+                        window.location = ('tel:0206063606');
+                    }else if(value.id=='mail'){
+                        window.location = ('mailto:info@dekweker.nl');
+                    }else if(value.id =='site'){
+                        window.open('http://kweker.nl/');
+                    }
+                    return false;
+                }else{
+                    return true;
+                }
+            }
+        },
         items: [
             {
+                
                 xtype : 'toolbar',
                 docked: 'top',
                 html: '<div class="titleLogo"></div>',
@@ -15,23 +36,30 @@ Ext.define('dekweker.view.Main', {
                 cls: 'titlebar',
                 height:50
             },
-            {   title:'folders',
+            {
+                id:'folder',
+                title:'folders',
                 xtype: 'folderview',
                 scrollable: 'horizontal'
             },
             {
+                id:'call',
                 title: 'Bel ons',
+                xtype: 'panel',
                 iconCls:'callIcon'
             },
             {
+                id:'mail',
                 title: 'Mail ons',
                 iconCls: 'mailIcon'
             },
             {
+                id:'site',
                 title: 'Website',
                 iconCls: 'websiteIcon'
             },
             {
+                id:'route',
                 title: 'Route',
                 iconCls: 'routeIcon'
             }
