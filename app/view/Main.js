@@ -64,12 +64,8 @@ Ext.define('dekweker.view.Main', {
             {
                 id:'route',
                 title: 'Route',
-<<<<<<< HEAD
-                iconCls: 'routeIcon',
+                iconCls: 'icon-route',
                 xtype: 'mapview'
-=======
-                iconCls: 'icon-route'
->>>>>>> Fixed icons for on phone. Fixed header.
             }
         ]
     }
