@@ -10,7 +10,8 @@ Ext.define('dekweker.view.Main', {
             {
                 xtype : 'toolbar',
                 docked: 'top',
-                title: 'de kweker',
+                html: '<div class="titleLogo"></div>',
+                centered:true,
                 cls: 'titlebar',
                 height:50
             },
