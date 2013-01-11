@@ -31,9 +31,35 @@ $base-color: #685848;
 	background:url(../images/logo.png) no-repeat top left;
 }
 
+//Own icons for in the tap bar
+.callIcon{
+	-webkit-mask-box-image: url('../images/icon-belons.png');
+}
+.mailIcon{
+	-webkit-mask-box-image: url('../images/icon-mailons.png');
+}
+.websiteIcon{
+	-webkit-mask-box-image: url('../images/icon-website.png');
+}
+.routeIcon{
+	-webkit-mask-box-image: url('../images/icon-route.png');
+}
+
 //Retina styling
 @media only screen and (-webkit-min-device-pixel-ratio : 2), only screen and (min-device-pixel-ratio : 2) {
 	.titleLogo{
 		background:url(../images/logo@2x.png) no-repeat top left;
+	}
+	.callIcon{
+		-webkit-mask-box-image: url('../images/icon-belons.png@2x');
+	}
+	.mailIcon{
+		-webkit-mask-box-image: url('../images/icon-mailons.png@2x');
+	}
+	.websiteIcon{
+		-webkit-mask-box-image: url('../images/icon-website.png@2x');
+	}
+	.routeIcon{
+		-webkit-mask-box-image: url('../images/icon-route.png@2x');
 	}
 }

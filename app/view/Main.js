@@ -23,16 +23,20 @@ Ext.define('dekweker.view.Main', {
                 }
             },
             {
-                title: 'Bel ons'
+                title: 'Bel ons',
+                iconCls:'callIcon'
             },
             {
-                title: 'Mail ons'
+                title: 'Mail ons',
+                iconCls: 'mailIcon'
             },
             {
-                title: 'Website'
+                title: 'Website',
+                iconCls: 'websiteIcon'
             },
             {
-                title: 'Route'
+                title: 'Route',
+                iconCls: 'routeIcon'
             }
         ]
     }
