@@ -49,23 +49,27 @@ Ext.define('dekweker.view.Main', {
                 id:'call',
                 title: 'Bel ons',
                 xtype: 'panel',
-                iconCls:'callIcon'
+                iconCls:'icon-belons'
             },
             {
                 id:'mail',
                 title: 'Mail ons',
-                iconCls: 'mailIcon'
+                iconCls: 'icon-mailons'
             },
             {
                 id:'site',
                 title: 'Website',
-                iconCls: 'websiteIcon'
+                iconCls: 'icon-website'
             },
             {
                 id:'route',
                 title: 'Route',
+<<<<<<< HEAD
                 iconCls: 'routeIcon',
                 xtype: 'mapview'
+=======
+                iconCls: 'icon-route'
+>>>>>>> Fixed icons for on phone. Fixed header.
             }
         ]
     }
