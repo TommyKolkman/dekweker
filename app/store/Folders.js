@@ -6,6 +6,9 @@ Ext.define('dekweker.store.Folders',{
 		data:[
 			{image:"http://dekweker.pfoapps.nl/wp-content/uploads/2012/11/page-001.jpg"},
 			{image:"http://dekweker.pfoapps.nl/wp-content/uploads/2012/11/page-002.jpg"},
+			{image:"http://dekweker.pfoapps.nl/wp-content/uploads/2012/11/page-003.jpg"},
+			{image:"http://dekweker.pfoapps.nl/wp-content/uploads/2012/11/page-001.jpg"},
+			{image:"http://dekweker.pfoapps.nl/wp-content/uploads/2012/11/page-002.jpg"},
 			{image:"http://dekweker.pfoapps.nl/wp-content/uploads/2012/11/page-003.jpg"}
 		]
 	}

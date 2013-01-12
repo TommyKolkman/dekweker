@@ -36,6 +36,9 @@ $base-color: #685848;
 	background:url(../images/logo.png) no-repeat top left;
 }
 
+.x-tab-normal .x-button-label{
+	text-transform:uppercase;
+}
 //Retina styling
 @media only screen and (-webkit-min-device-pixel-ratio : 2), only screen and (min-device-pixel-ratio : 2) {
 	.titleLogo{
