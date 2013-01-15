@@ -40,6 +40,7 @@ Ext.define('dekweker.view.Main', {
                 id:'folder',
                 title:'folders',
                 xtype: 'folderview',
+                cls:'main',
                 scrollable: 'horizontal',
                 inline: {
 					wrap: false

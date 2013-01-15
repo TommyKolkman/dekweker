@@ -5,10 +5,12 @@ var folderview = Ext.define('dekweker.view.Folder', {
 		fullscreen: false,
 		itemTpl:'<img src="{image}" height="100%"/>',
 		store:'Folders',
+		itemCls:'folder',
 		listeners:{
 			painted:function(){
 				var _self =this;
-				this.fireEvent('setScrollHandler', this);
+
+				//Set end of scroll behaviour
 				var scroller = this.getScrollable().getScroller();
 				scroller.addListener('scrollend',function(){
 					var half = Ext.Viewport.getWindowWidth()/2;
@@ -24,11 +26,34 @@ var folderview = Ext.define('dekweker.view.Folder', {
 					});
 					console.log(scroll);
 					if(scroll!==0){
-						scroller.scrollTo(scroller.position.x+(-1*scroll),scroller.position.y,true);
+						if(scroller.position.x+(-1*scroll)<0){
+							scroller.scrollTo(0,scroller.position.y,true);
+						}else{
+							scroller.scrollTo(scroller.position.x+(-1*scroll),scroller.position.y,true);
+						}
 					}
+					//console.log(scroller.position.x+(-1*scroll));
 				});
+
+				scroller.addListener('scrollstart',function(){
+					_self.setPaddings();
+				});
+			},
+			resize:function(el,opts){
+				this.setPaddings();
 			}
+
 		}
-	}
+		
+	},
+	setPaddings:function(){
+			var half = Ext.Viewport.getWindowWidth()/2;
+			var first = $(this.getViewItems()[0]).width()/2;
+			var last = $(this.getViewItems()[this.getViewItems().length-1]).width()/2;
+					
+			$(this.getViewItems()[0]).css('padding', '0 0 0 '+(half-last)+'px');
+			$(this.getViewItems()[this.getViewItems().length-1]).css('padding', '0 '+(half-last)+'px 0 0');
+
+		}
 
 });
