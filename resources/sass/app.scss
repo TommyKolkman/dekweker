@@ -51,7 +51,20 @@ $base-color: #685848;
 .folder{
 	margin:0px 5px;
 }
+//Adding wood background for portrait and landscape
 .main{
-	background:url(../images/wood-bg.jpg) no-repeat top left;
 	background-size:cover;
 }
+@media only screen and (orientation:landscape){
+	.main{
+		background:url(../images/wood-bg-landscape.jpg) no-repeat top left;
+		background-size:cover;
+	}
+}
+@media only screen and (orientation:portrait){
+	.main{
+		background:url(../images/wood-bg-portrait.jpg) no-repeat top left;
+		background-size:cover;
+	}
+}
+
