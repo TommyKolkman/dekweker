@@ -14,6 +14,7 @@ var routeview = Ext.define('dekweker.view.Route', {
                 frame:'true',
                 scrollable:'vertical',
                 height:'200px',
+                id: 'map-directions-container',
 
                 items:[
                     {

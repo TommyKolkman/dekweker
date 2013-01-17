@@ -6,6 +6,7 @@ var mapview = Ext.define('dekweker.view.Map', {
 	],
 	directionsService:null,
 	directionsDisplay:null,
+	geocoder:null,
 	_self:this,
 	config: {
 		useCurrentLocation: {
@@ -23,15 +24,10 @@ var mapview = Ext.define('dekweker.view.Map', {
 			maprender : function(comp, map){
 				_self = this;
 				//On render, setup directionsDisplay and Service
+				geocoder = new google.maps.Geocoder();
 				directionsService = new google.maps.DirectionsService();
 				directionsDisplay = new google.maps.DirectionsRenderer();
 				directionsDisplay.setMap(map);
-
-				//Prompt the user for startingpoint
-				// Ext.Msg.prompt('Get directions', 'Startaddress:', function(btn, text){
-				// 	var start = text;
-				// 	_self.plotRoute(start);
-				// });
 
 				if (navigator.geolocation){
 					navigator.geolocation.getCurrentPosition(_self.translateNavigator);
@@ -40,7 +36,6 @@ var mapview = Ext.define('dekweker.view.Map', {
 
 			},
 			locationupdate: function(geo) {
-				console.log('Joehoe');
 				var currentLocation = new google.maps.LatLng(geo.latitude, geo.longitude);
 				var _self = this;
 				if (map.rendered){
@@ -58,7 +53,24 @@ var mapview = Ext.define('dekweker.view.Map', {
 	},
 	translateNavigator: function(navigatorObj){
 		var currentLatLng = new google.maps.LatLng(navigatorObj.coords.latitude, navigatorObj.coords.longitude);
-		_self.plotRoute(currentLatLng);
+		if (geocoder) {
+			geocoder.geocode({ 'latLng': currentLatLng}, function (results, status) {
+				if (status == google.maps.GeocoderStatus.OK) {
+					Ext.Msg.confirm('Bevestigen', results[0].formatted_address+' <br />als startlocatie gebruiken?', function(buttonId){
+						if(buttonId === 'yes'){
+							_self.plotRoute(currentLatLng);
+						}else{
+							Ext.Msg.prompt('Startlocatie', 'Adres/Plaats:', function(btn, text){
+								var start = text;
+								_self.plotRoute(start);
+							});
+						}
+					});
+				}else{
+					console.log("Geocoding failed: " + status);
+				}
+			});
+		}
 	},
 	plotRoute: function(start){
 		var end = "De Kweker, Jan van Galenstraat 4, 1051 KL Amsterdam";
