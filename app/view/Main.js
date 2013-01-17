@@ -22,19 +22,37 @@ Ext.define('dekweker.view.Main', {
                     }
                     return false;
                 }else{
+                    var button = Ext.getCmp('backbutton');
+                    if(value.id=='route'){
+                       button.show();
+                    }else{
+                        button.hide();
+                    }
                     return true;
                 }
+            },
+            initialize:function(){
+                var _self=this;
+                Ext.getCmp('backbutton').setHandler(function(){
+                    _self.setActiveItem(0);
+                });
             }
         },
         items: [
             {
-                
                 xtype : 'toolbar',
                 docked: 'top',
                 html: '<div class="titleLogo"></div>',
                 centered:true,
                 cls: 'titlebar',
-                height:50
+                height:50,
+                items : [
+                {
+                    ui: 'back x-button-light',
+                    id: 'backbutton',
+                    text: "Terug",
+                    hidden:true
+                }]
             },
             {
                 id:'folder',
