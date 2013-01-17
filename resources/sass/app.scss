@@ -54,6 +54,20 @@ $base-color: #685848;
 	height:95%;
 	margin:2.5% 0 2.5% 0;
 }
+
+//Messagebox styling
+.messageBoxKweker{
+	.x-innerhtml{
+		color:white;
+		text-align: center;
+	}
+	input{
+		margin: 0 auto;
+		width:200px;
+		display: block;
+	}
+}
+
 //Adding wood background for portrait and landscape
 .main{
 	background-size:cover;

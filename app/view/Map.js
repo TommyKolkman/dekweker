@@ -53,17 +53,35 @@ var mapview = Ext.define('dekweker.view.Map', {
 	},
 	translateNavigator: function(navigatorObj){
 		var currentLatLng = new google.maps.LatLng(navigatorObj.coords.latitude, navigatorObj.coords.longitude);
+		var msgbox = Ext.Msg;
 		if (geocoder) {
 			geocoder.geocode({ 'latLng': currentLatLng}, function (results, status) {
 				if (status == google.maps.GeocoderStatus.OK) {
-					Ext.Msg.confirm('Bevestigen', results[0].formatted_address+' <br />als startlocatie gebruiken?', function(buttonId){
-						if(buttonId === 'yes'){
-							_self.plotRoute(currentLatLng);
-						}else{
-							Ext.Msg.prompt('Startlocatie', 'Adres/Plaats:', function(btn, text){
-								var start = text;
-								_self.plotRoute(start);
-							});
+					Ext.Msg.show({
+						title: 'Bevestigen',
+						message: results[0].formatted_address+' <br />als startlocatie gebruiken?',
+						width: 300,
+						height:300,
+						buttons: Ext.MessageBox.OKCANCEL,
+						cls:'messageBoxKweker',
+						fn: function(buttonId) {
+							if(buttonId === 'ok'){
+								_self.plotRoute(currentLatLng);
+							}else{
+								Ext.Msg.show({
+									title: 'Startlocatie',
+									message: 'Adres/Plaats:',
+									height: 300,
+									width: 300,
+									buttons: Ext.MessageBox.OK,
+									cls:'messageBoxKweker',
+									prompt : { maxlength : 180, autocapitalize : false },
+									fn: function(buttonId,value) {
+										var start = value;
+										_self.plotRoute(start);
+									}
+								});
+							}
 						}
 					});
 				}else{
