@@ -3,20 +3,25 @@ var folderview = Ext.define('dekweker.view.Folder', {
 	extend:'Ext.DataView',
 	config: {
 		fullscreen: false,
-		itemTpl:'<img src="{image}" height="100%"/>',
+		itemTpl:'<img src="{image}" class="folderImage"/>',
 		store:'Folders',
 		itemCls:'folder',
 		listeners:{
-			painted:function(){
+			initialize:function(){
 				var _self =this;
 
-				//Set end of scroll behaviour
+				//Declare variables
 				var scroller = this.getScrollable().getScroller();
+				var half = Ext.Viewport.getWindowWidth()/2;
+				var best;
+				var minimum=8888;
+				var scroll;
+
+				//Set end of scroll behaviour
 				scroller.addListener('scrollend',function(){
-					var half = Ext.Viewport.getWindowWidth()/2;
-					var best;
-					var minimum=8888;
-					var scroll;
+					minimum=9999;
+
+					//Select closest item to the middle
 					Ext.Array.each(_self.getViewItems(),function(element, index, elements){
 						var el = $(element);
 						if(minimum>Math.abs(half-((el.offset().left+parseInt(el.css('padding-left').replace("px", ""),10))+el.width()/2))){
@@ -25,7 +30,7 @@ var folderview = Ext.define('dekweker.view.Folder', {
 							console.log("Element number "+index+" is closest now");
 						}
 					});
-
+					//Scroll to correct position
 					if(scroll!==0){
 						if(scroller.position.x+(-1*scroll)<0){
 							console.log("Scroll to beginning");
@@ -39,25 +44,39 @@ var folderview = Ext.define('dekweker.view.Folder', {
 					}
 				});
 
+				//Set start of scroll behaviour
+				var first;
+				var last;
+				var newfirst;
+				var newlast;
+				var items;
 				scroller.addListener('scrollstart',function(){
-					_self.setPaddings();
+					//Calculate paddings
+					items = _self.getViewItems();
+					half = Ext.Viewport.getWindowWidth()/2;
+					newfirst = $(items[0]).width()/2;
+					newlast = $(items[items.length-1]).width()/2;
+							
+					//Set paddings to the first and last item
+					if(newfirst!==first || newlast!==last){
+						first=newfirst;
+						last=newlast;
+						$(items[0]).css('padding', '0 0 0 '+(half-last)+'px');
+						$(items[items.length-1]).css('padding', '0 '+(half-last)+'px 0 0');
+					}
 				});
-			},
-			resize:function(el,opts){
-				this.setPaddings();
 			}
-
 		}
-		
 	},
 	setPaddings:function(){
-			var half = Ext.Viewport.getWindowWidth()/2;
-			var first = $(this.getViewItems()[0]).width()/2;
-			var last = $(this.getViewItems()[this.getViewItems().length-1]).width()/2;
+		//Calculate paddings
+		var half = Ext.Viewport.getWindowWidth()/2;
+		var first = $(this.getViewItems()[0]).width()/2;
+		var last = $(this.getViewItems()[this.getViewItems().length-1]).width()/2;
 					
-			$(this.getViewItems()[0]).css('padding', '0 0 0 '+(half-last)+'px');
-			$(this.getViewItems()[this.getViewItems().length-1]).css('padding', '0 '+(half-last)+'px 0 0');
+		//Set paddings to the first and last item
+		$(this.getViewItems()[0]).css('padding', '0 0 0 '+(half-last)+'px');
+		$(this.getViewItems()[this.getViewItems().length-1]).css('padding', '0 '+(half-last)+'px 0 0');
 
-		}
-
+	}
 });
