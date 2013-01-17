@@ -15,7 +15,7 @@ Ext.application({
 
     views: ['Main','Folder','Detail','Map',"Route"],
     controllers: ['Controller'],
-    models:['Folder'],
+    models:['Folder','Page'],
     stores:['Folders'],
 
 

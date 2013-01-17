@@ -1,0 +1,210 @@
+<?php
+$callback = $_REQUEST['callback'];
+
+$output = '{
+   "folders":[
+      {
+         "title":"Versactie week 3 en 4",
+         "link":"http://dekweker.pfoapps.nl/nieuws/versactie-week-3-en-4/",
+         "date":"Mon, 14 Jan 2013 15:46:55 +0000",
+         "pages":[
+            {
+               "width":692,
+               "height":980,
+               "url":"http://dekweker.pfoapps.nl/wp-content/uploads/2013/01/Volgende-week-4-banier.jpg"
+            },
+            {
+               "width":692,
+               "height":980,
+               "url":"http://dekweker.pfoapps.nl/wp-content/uploads/2013/01/Week-3-deze-week-banier.jpg<"
+            }
+         ]
+      },
+      {
+         "title":"De Kweker - Vleesspecial",
+         "link":"http://dekweker.pfoapps.nl/nieuws/de-kweker-vleesspecial/",
+         "date":"Wed, 09 Jan 2013 08:10:12 +0000",
+         "pages":[
+            {
+               "width":692,
+               "height":581,
+               "url":"http://dekweker.pfoapps.nl/wp-content/uploads/2013/01/page-0011.jpg"
+            },
+            {
+               "width":692,
+               "height":581,
+               "url":"http://dekweker.pfoapps.nl/wp-content/uploads/2013/01/page-0021.jpg"
+            },
+            {
+               "width":692,
+               "height":581,
+               "url":"http://dekweker.pfoapps.nl/wp-content/uploads/2013/01/page-0031.jpg"
+            },
+            {
+               "width":692,
+               "height":581,
+               "url":"http://dekweker.pfoapps.nl/wp-content/uploads/2013/01/page-0041.jpg"
+            },
+            {
+               "width":692,
+               "height":581,
+               "url":"http://dekweker.pfoapps.nl/wp-content/uploads/2013/01/page-0051.jpg"
+            },
+            {
+               "width":692,
+               "height":581,
+               "url":"http://dekweker.pfoapps.nl/wp-content/uploads/2013/01/page-0061.jpg"
+            },
+            {
+               "width":692,
+               "height":581,
+               "url":"http://dekweker.pfoapps.nl/wp-content/uploads/2013/01/page-0071.jpg"
+            },
+            {
+               "width":692,
+               "height":581,
+               "url":"http://dekweker.pfoapps.nl/wp-content/uploads/2013/01/page-0081.jpg"
+            },
+            {
+               "width":692,
+               "height":581,
+               "url":"http://dekweker.pfoapps.nl/wp-content/uploads/2013/01/page-0091.jpg"
+            },
+            {
+               "width":692,
+               "height":581,
+               "url":"http://dekweker.pfoapps.nl/wp-content/uploads/2013/01/page-0101.jpg"
+            },
+            {
+               "width":692,
+               "height":581,
+               "url":"http://dekweker.pfoapps.nl/wp-content/uploads/2013/01/page-0111.jpg"
+            },
+            {
+               "width":692,
+               "height":581,
+               "url":"http://dekweker.pfoapps.nl/wp-content/uploads/2013/01/page-0121.jpg"
+            }
+         ]
+      },
+      {
+         "title":"De Kweker 1 - 2013",
+         "link":"http://dekweker.pfoapps.nl/nieuws/de-kweker-1-2013/",
+         "date":"Wed, 09 Jan 2013 08:09:01 +0000",
+         "pages":[
+            {
+               "width":692,
+               "height":979,
+               "url":"http://dekweker.pfoapps.nl/wp-content/uploads/2013/01/page-001.jpg"
+            },
+            {
+               "width":692,
+               "height":979,
+               "url":"http://dekweker.pfoapps.nl/wp-content/uploads/2013/01/page-002.jpg"
+            },
+            {
+               "width":692,
+               "height":979,
+               "url":"http://dekweker.pfoapps.nl/wp-content/uploads/2013/01/page-003.jpg"
+            },
+            {
+               "width":692,
+               "height":979,
+               "url":"http://dekweker.pfoapps.nl/wp-content/uploads/2013/01/page-004.jpg"
+            },
+            {
+               "width":692,
+               "height":979,
+               "url":"http://dekweker.pfoapps.nl/wp-content/uploads/2013/01/page-005.jpg"
+            },
+            {
+               "width":692,
+               "height":979,
+               "url":"http://dekweker.pfoapps.nl/wp-content/uploads/2013/01/page-006.jpg"
+            },
+            {
+               "width":692,
+               "height":979,
+               "url":"http://dekweker.pfoapps.nl/wp-content/uploads/2013/01/page-007.jpg"
+            },
+            {
+               "width":692,
+               "height":979,
+               "url":"http://dekweker.pfoapps.nl/wp-content/uploads/2013/01/page-008.jpg"
+            },
+            {
+               "width":692,
+               "height":979,
+               "url":"http://dekweker.pfoapps.nl/wp-content/uploads/2013/01/page-009.jpg"
+            },
+            {
+               "width":692,
+               "height":979,
+               "url":"http://dekweker.pfoapps.nl/wp-content/uploads/2013/01/page-010.jpg"
+            },
+            {
+               "width":692,
+               "height":979,
+               "url":"http://dekweker.pfoapps.nl/wp-content/uploads/2013/01/page-011.jpg"
+            },
+            {
+               "width":692,
+               "height":979,
+               "url":"http://dekweker.pfoapps.nl/wp-content/uploads/2013/01/page-012.jpg"
+            },
+            {
+               "width":692,
+               "height":979,
+               "url":"http://dekweker.pfoapps.nl/wp-content/uploads/2013/01/page-013.jpg"
+            },
+            {
+               "width":692,
+               "height":979,
+               "url":"http://dekweker.pfoapps.nl/wp-content/uploads/2013/01/page-014.jpg"
+            },
+            {
+               "width":692,
+               "height":979,
+               "url":"http://dekweker.pfoapps.nl/wp-content/uploads/2013/01/page-015.jpg"
+            },
+            {
+               "width":692,
+               "height":979,
+               "url":"http://dekweker.pfoapps.nl/wp-content/uploads/2013/01/page-016.jpg"
+            },
+            {
+               "width":692,
+               "height":979,
+               "url":"http://dekweker.pfoapps.nl/wp-content/uploads/2013/01/page-017.jpg"
+            },
+            {
+               "width":692,
+               "height":979,
+               "url":"http://dekweker.pfoapps.nl/wp-content/uploads/2013/01/page-018.jpg"
+            },
+            {
+               "width":692,
+               "height":979,
+               "url":"http://dekweker.pfoapps.nl/wp-content/uploads/2013/01/page-019.jpg"
+            },
+            {
+               "width":692,
+               "height":979,
+               "url":"http://dekweker.pfoapps.nl/wp-content/uploads/2013/01/page-020.jpg"
+            }
+         ]
+      }
+   ]
+}';
+
+
+//Start output
+if ($callback) {
+    header('Content-Type: text/javascript');
+    echo $callback . '(' . ($output) . ');';
+} else {
+    header('Content-Type: application/x-json');
+    echo ($output);
+}
+
+?>

@@ -3,13 +3,14 @@ var folderview = Ext.define('dekweker.view.Folder', {
 	extend:'Ext.DataView',
 	config: {
 		fullscreen: false,
-		itemTpl:'<img src="{image}" class="folderImage"/>',
+		itemTpl:
+			'<tpl for="pages"><div><tpl if="xindex==1"><img src="{url}" class="folderImage"/></tpl></div></tpl>',
 		store:'Folders',
 		itemCls:'folder',
 		listeners:{
 			initialize:function(){
 				var _self =this;
-
+				console.log(this.getStore());
 				//Declare variables
 				var scroller = this.getScrollable().getScroller();
 				var half = Ext.Viewport.getWindowWidth()/2;
