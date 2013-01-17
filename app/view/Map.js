@@ -13,7 +13,7 @@ var mapview = Ext.define('dekweker.view.Map', {
 		},
 		mapOptions : {
 			zoom : 10,
-			mapTypeId : google.maps.MapTypeId.HYBRID,
+			mapTypeId : google.maps.MapTypeId.ROADMAP,
 			navigationControl: true,
 			navigationControlOptions: {
 				style: google.maps.NavigationControlStyle.DEFAULT
@@ -36,6 +36,8 @@ var mapview = Ext.define('dekweker.view.Map', {
 				if (navigator.geolocation){
 					navigator.geolocation.getCurrentPosition(_self.translateNavigator);
 				}
+
+
 			},
 			locationupdate: function(geo) {
 				console.log('Joehoe');
@@ -67,6 +69,7 @@ var mapview = Ext.define('dekweker.view.Map', {
 		};
 		directionsService.route(request, function(response, status) {
 			if (status == google.maps.DirectionsStatus.OK) {
+				directionsDisplay.setPanel(document.getElementById('map-directions'));
 				directionsDisplay.setDirections(response);
 			}
 		});
