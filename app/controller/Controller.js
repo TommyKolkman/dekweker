@@ -10,10 +10,10 @@ Ext.define('dekweker.controller.Controller', {
 			},
 			control: {
 					folders:{
-							itemtap: 'onFolderSelect'
+						itemtap: 'onFolderSelect'
 					},
 					modal:{
-							'popupDrawn':'loadFolder'
+						'popupDrawn':'loadFolder'
 					}
 			}
 	},

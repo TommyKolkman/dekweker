@@ -10,7 +10,7 @@ Ext.define('dekweker.view.Main', {
             activeitemchange: function( ob, value, oldValue, eOpts ){
                 //Check which card we are gonna switch to
                 if(value.id!=='folder' && value.id !=='route'){
-                    this.setActiveItem(0);
+                    this.setActiveItem(oldValue);
                     
                     //Handling of the buttons in the menu
                     if(value.id=='call'){
@@ -36,8 +36,16 @@ Ext.define('dekweker.view.Main', {
                 Ext.getCmp('backbutton').setHandler(function(){
                     _self.setActiveItem(0);
                 });
+                Ext.getCmp('tabBar').getComponent(0).hide();
             }
         },
+        tabBar: {
+                id: 'tabBar',
+                ui: 'dark',
+                layout: {
+                    pack: 'center'
+                }
+            },
         items: [
             {
                 xtype : 'toolbar',
