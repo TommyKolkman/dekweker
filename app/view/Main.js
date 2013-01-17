@@ -1,6 +1,7 @@
 Ext.define('dekweker.view.Main', {
     extend: 'Ext.tab.Panel',
     xtype: 'main',
+    id:'main',
     requires: [
         'Ext.TitleBar'
     ],
@@ -9,7 +10,7 @@ Ext.define('dekweker.view.Main', {
         listeners:{
             activeitemchange: function( ob, value, oldValue, eOpts ){
                 //Check which card we are gonna switch to
-                if(value.id!=='folder' && value.id !=='route'){
+                if(value.id!=='folder' && value.id !=='route' && value.id !=='pages'){
                     this.setActiveItem(oldValue);
                     
                     //Handling of the buttons in the menu
@@ -23,7 +24,7 @@ Ext.define('dekweker.view.Main', {
                     return false;
                 }else{
                     var button = Ext.getCmp('backbutton');
-                    if(value.id=='route'){
+                    if(value.id=='route'||value.id=='pages'){
                        button.show();
                     }else{
                         button.hide();
@@ -37,6 +38,7 @@ Ext.define('dekweker.view.Main', {
                     _self.setActiveItem(0);
                 });
                 Ext.getCmp('tabBar').getComponent(0).hide();
+                Ext.getCmp('tabBar').getComponent(1).hide();
             }
         },
         tabBar: {
@@ -71,6 +73,16 @@ Ext.define('dekweker.view.Main', {
                 inline: {
 					wrap: false
 				}
+            },
+            {
+                id:'pages',
+                title:'Pagina\'s',
+                xtype: 'pageview',
+                cls:'main',
+                scrollable: 'horizontal',
+                inline: {
+                    wrap: false
+                }
             },
             {
                 id:'call',

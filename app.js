@@ -13,10 +13,10 @@ Ext.application({
     ],
 
 
-    views: ['Main','Folder','Detail','Map',"Route"],
+    views: ['Main','Folder','Page','Detail','Map',"Route"],
     controllers: ['Controller'],
     models:['Folder','Page'],
-    stores:['Folders'],
+    stores:['Folders','Pages'],
 
 
     icon: {

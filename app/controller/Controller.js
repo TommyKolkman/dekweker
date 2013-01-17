@@ -6,14 +6,18 @@ Ext.define('dekweker.controller.Controller', {
 	config: {
 			refs: {
 					folders:'folderview',
+					pages:'pageview',
 					modal:'detailview'
 			},
 			control: {
 					folders:{
 						itemtap: 'onFolderSelect'
 					},
+					pages:{
+						itemtap: 'onPageSelect'
+					},
 					modal:{
-						'popupDrawn':'loadFolder'
+						'popupDrawn':'loadPage'
 					}
 			}
 	},
@@ -35,6 +39,13 @@ Ext.define('dekweker.controller.Controller', {
 		}
 	},
 	onFolderSelect:function( list, index, target, record, event ){
+		var store = Ext.getStore('Pages');
+		console.log(record.get('pages'));
+		store.setData(record.get('pages'));
+		Ext.getCmp('main').setActiveItem(1);
+	},
+	onPageSelect:function( list, index, target, record, event ){
+
 		//Open modal with the correct folder
 		var elementSize = {width:event.target.width,height:event.target.height};
 
@@ -54,7 +65,7 @@ Ext.define('dekweker.controller.Controller', {
 
 		this.distance.y = (ypos) / (elementSize.height);
 	},
-	loadFolder:function(el){
+	loadPage:function(el){
 		var _self = this;
 		this.image = null;
 		this.image = new Image();
@@ -64,9 +75,11 @@ Ext.define('dekweker.controller.Controller', {
 		this.image.onload = function(){
 			Ext.getCmp('folderImage').setHtml(_self.image);
 			_self.setScroll(el);
+
 		};
 	},
 	setScroll:function(el){
+
 		var scroll = {
 			x:this.image.width*this.distance.x-(Ext.Viewport.getWindowWidth()*0.45),
 			y:this.image.height*this.distance.y-(Ext.Viewport.getWindowHeight()*0.45)

@@ -1,12 +1,11 @@
-var folderview = Ext.define('dekweker.view.Folder', {
-	xtype:'folderview',
-	id:'folderview',
+var pageview = Ext.define('dekweker.view.Page', {
+	xtype:'pageview',
 	extend:'Ext.DataView',
 	config: {
 		fullscreen: false,
 		itemTpl:
-			'<tpl for="pages"><div><tpl if="xindex==1"><img src="{url}" class="folderImage"/></tpl></div></tpl>',
-		store:'Folders',
+			'<div><img src="{url}" class="folderImage"/></div>',
+		store:'Pages',
 		itemCls:'folder',
 		listeners:{
 			initialize:function(){

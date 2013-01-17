@@ -16,7 +16,7 @@ $output = '{
             {
                "width":692,
                "height":980,
-               "url":"http://dekweker.pfoapps.nl/wp-content/uploads/2013/01/Week-3-deze-week-banier.jpg<"
+               "url":"http://dekweker.pfoapps.nl/wp-content/uploads/2013/01/Week-3-deze-week-banier.jpg"
             }
          ]
       },
