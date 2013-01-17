@@ -9,11 +9,9 @@ var mapview = Ext.define('dekweker.view.Map', {
 	geocoder:null,
 	_self:this,
 	config: {
-		useCurrentLocation: {
-			autoUpdate : false
-		},
 		mapOptions : {
 			zoom : 10,
+			center : new google.maps.LatLng(52.381313,4.865223),
 			mapTypeId : google.maps.MapTypeId.ROADMAP,
 			navigationControl: true,
 			navigationControlOptions: {
@@ -28,28 +26,19 @@ var mapview = Ext.define('dekweker.view.Map', {
 				directionsService = new google.maps.DirectionsService();
 				directionsDisplay = new google.maps.DirectionsRenderer();
 				directionsDisplay.setMap(map);
-
-				if (navigator.geolocation){
-					navigator.geolocation.getCurrentPosition(_self.translateNavigator);
-				}
-
-
 			},
-			locationupdate: function(geo) {
-				var currentLocation = new google.maps.LatLng(geo.latitude, geo.longitude);
-				var _self = this;
-				if (map.rendered){
-					_self.plotRoute(currentLocation);
-				}
-				else{
-					map.on('activate', function(){
-						_self.plotRoute(currentLocation);
-					});
+			painted: function(element, options){
+				if (navigator.geolocation){
+					navigator.geolocation.getCurrentPosition(_self.translateNavigator, _self.handle_location_error);
+				}else{
+					_self.askLocation();
 				}
 			}
-
 		}
-
+	},
+	handle_location_error: function(err) {
+		//A location error occurred
+		_self.askLocation();
 	},
 	translateNavigator: function(navigatorObj){
 		var currentLatLng = new google.maps.LatLng(navigatorObj.coords.latitude, navigatorObj.coords.longitude);
@@ -68,19 +57,7 @@ var mapview = Ext.define('dekweker.view.Map', {
 							if(buttonId === 'ok'){
 								_self.plotRoute(currentLatLng);
 							}else{
-								Ext.Msg.show({
-									title: 'Startlocatie',
-									message: 'Adres/Plaats:',
-									height: 300,
-									width: 300,
-									buttons: Ext.MessageBox.OK,
-									cls:'messageBoxKweker',
-									prompt : { maxlength : 180, autocapitalize : false },
-									fn: function(buttonId,value) {
-										var start = value;
-										_self.plotRoute(start);
-									}
-								});
+								_self.askLocation();
 							}
 						}
 					});
@@ -89,6 +66,21 @@ var mapview = Ext.define('dekweker.view.Map', {
 				}
 			});
 		}
+	},
+	askLocation: function(){
+		Ext.Msg.show({
+			title: 'Startlocatie',
+			message: 'Adres/Plaats:',
+			height: 300,
+			width: 300,
+			buttons: Ext.MessageBox.OK,
+			cls:'messageBoxKweker',
+			prompt : { maxlength : 180, autocapitalize : false },
+			fn: function(buttonId,value) {
+				var start = value;
+				_self.plotRoute(start);
+			}
+		});
 	},
 	plotRoute: function(start){
 		var end = "De Kweker, Jan van Galenstraat 4, 1051 KL Amsterdam";
