@@ -19,20 +19,24 @@ var folderview = Ext.define('dekweker.view.Folder', {
 					var scroll;
 					Ext.Array.each(_self.getViewItems(),function(element, index, elements){
 						var el = $(element);
-						if(minimum>Math.abs(half-(el.offset().left+el.width()/2))){
+						if(minimum>Math.abs(half-((el.offset().left+parseInt(el.css('padding-left').replace("px", ""),10))+el.width()/2))){
 							scroll =  Math.round(half-(el.offset().left+el.width()/2));
-							minimum = Math.abs(half-(el.offset().left+el.width()/2));
+							minimum = Math.abs(half-((el.offset().left+parseInt(el.css('padding-left').replace("px", ""),10))+el.width()/2));
+							console.log("Element number "+index+" is closest now");
 						}
 					});
-					console.log(scroll);
+
 					if(scroll!==0){
 						if(scroller.position.x+(-1*scroll)<0){
+							console.log("Scroll to beginning");
 							scroller.scrollTo(0,scroller.position.y,true);
 						}else{
+							console.log("Scroll To ",scroller.position.x+(-1*scroll));
 							scroller.scrollTo(scroller.position.x+(-1*scroll),scroller.position.y,true);
 						}
+					}else{
+						console.log("Dont scroll");
 					}
-					//console.log(scroller.position.x+(-1*scroll));
 				});
 
 				scroller.addListener('scrollstart',function(){
