@@ -13,7 +13,7 @@ Ext.application({
     ],
 
 
-    views: ['Main','Folder','Detail','Map'],
+    views: ['Main','Folder','Detail','Map',"Route"],
     controllers: ['Controller'],
     models:['Folder'],
     stores:['Folders'],

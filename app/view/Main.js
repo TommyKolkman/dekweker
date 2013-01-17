@@ -66,7 +66,7 @@ Ext.define('dekweker.view.Main', {
                 id:'route',
                 title: 'Route',
                 iconCls: 'icon-route',
-                xtype: 'mapview'
+                xtype: 'routeview'
             }
         ]
     }
