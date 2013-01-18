@@ -33,7 +33,7 @@ var folderview = Ext.define('dekweker.view.Folder', {
 						}
 					});
 					//Scroll to correct position
-					if(scroll!==0){
+					if(Math.abs(scroll)<2){
 						if(scroller.position.x+(-1*scroll)<0){
 							console.log("Scroll to beginning");
 							scroller.scrollTo(0,scroller.position.y,true);
