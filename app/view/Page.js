@@ -5,11 +5,12 @@ var pageview = Ext.define('dekweker.view.Page', {
 	config: {
 		fullscreen: false,
 		itemTpl:
-			'<div class="loading"><img src="{url}" class="folderImage"/></div>',
+			'<div class=""><img src="{url}" class="folderImage"/></div>',
 		store:'Pages',
 		itemCls:'folder',
 		listeners:{
 			initialize:function(){
+				//Select closest item to the middle
 				var _self =this;
 
 				//Declare variables

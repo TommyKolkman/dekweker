@@ -39,8 +39,19 @@ Ext.define('dekweker.controller.Controller', {
 		}
 	},
 	onFolderSelect:function( list, index, target, record, event ){
+		var _self = this;
 		var store = Ext.getStore('Pages');
-		store.setData(record.get('pages'));
+		var images = [];
+
+		//Loop through the pages
+		Ext.Array.each(record.get('pages'),function(item, index, elements){
+			images[index] = new Image();
+			$(images[index]).load(function(e){
+				store.add(item);
+				console.log("Loaded",item.url);
+			});
+			images[index].src = item.url;
+		});
 		Ext.getCmp('main').setActiveItem(1);
 	},
 	onPageSelect:function( list, index, target, record, event ){
