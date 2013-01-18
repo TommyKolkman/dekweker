@@ -60,6 +60,12 @@ $base-color: #685848;
 .detailview{
 	background: #000000;
 }
+.loading{
+	background: url(../images/ajax-loader.gif) no-repeat center center;
+	.folderImage{
+		opacity:0;
+	}
+}
 //Closebutton for the modal
 .closeButton{
 	width:44px;

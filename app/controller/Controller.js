@@ -40,7 +40,6 @@ Ext.define('dekweker.controller.Controller', {
 	},
 	onFolderSelect:function( list, index, target, record, event ){
 		var store = Ext.getStore('Pages');
-		console.log(record.get('pages'));
 		store.setData(record.get('pages'));
 		Ext.getCmp('main').setActiveItem(1);
 	},

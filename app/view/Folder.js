@@ -59,6 +59,7 @@ var folderview = Ext.define('dekweker.view.Folder', {
 				//Set start of scroll behaviour
 				var first, last, newfirst, newlast, items;
 				scroller.addListener('scrollstart',function(){
+
 					if(timeOut!==false){
 						clearTimeout(timeOut);
 					}

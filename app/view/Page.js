@@ -5,12 +5,12 @@ var pageview = Ext.define('dekweker.view.Page', {
 	config: {
 		fullscreen: false,
 		itemTpl:
-			'<div><img src="{url}" class="folderImage"/></div>',
+			'<div class=""><img src="{url}" class="folderImage"/></div>',
 		store:'Pages',
 		itemCls:'folder',
 		listeners:{
 			initialize:function(){
-								var _self =this;
+				var _self =this;
 
 				//Declare variables
 				var scroller = this.getScrollable().getScroller();
@@ -36,21 +36,21 @@ var pageview = Ext.define('dekweker.view.Page', {
 							if(minimum>Math.abs(half-((el.offset().left+parseInt(el.css('padding-left').replace("px", ""),10))+el.width()/2))){
 								scroll =  Math.round(half-(el.offset().left+el.width()/2));
 								minimum = Math.abs(half-((el.offset().left+parseInt(el.css('padding-left').replace("px", ""),10))+el.width()/2));
-								console.log("Element number "+index+" is closest now");
+								//console.log("Element number "+index+" is closest now");
 							}
 						});
 						//Scroll to correct position
 						if(Math.abs(scroll)>2){
 							var position = scroller.position.x+(-1*scroll);
 							if(position<0){
-								console.log("Scroll to beginning");
+								//console.log("Scroll to beginning");
 								scroller.scrollTo(0,scroller.position.y,true);
 							}else{
 								console.log("Scroll To ",position);
 								scroller.scrollTo(position,scroller.position.y,true);
 							}
 						}else{
-							console.log("Dont scroll");
+							//console.log("Dont scroll");
 						}
 					},300);
 
