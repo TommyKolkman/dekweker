@@ -9,7 +9,8 @@ Ext.application({
     name: 'dekweker',
 
     requires: [
-        'Ext.MessageBox'
+        'Ext.MessageBox',
+        'Ext.data.proxy.JsonP'
     ],
 
 

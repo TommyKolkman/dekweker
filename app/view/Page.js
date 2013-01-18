@@ -5,7 +5,7 @@ var pageview = Ext.define('dekweker.view.Page', {
 	config: {
 		fullscreen: false,
 		itemTpl:
-			'<div class=""><img src="{url}" class="folderImage"/></div>',
+			'<div class="loading"><img src="{url}" class="folderImage"/></div>',
 		store:'Pages',
 		itemCls:'folder',
 		listeners:{
