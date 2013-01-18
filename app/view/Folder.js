@@ -21,13 +21,13 @@ var folderview = Ext.define('dekweker.view.Folder', {
 				//For this we use a timer so it doesn't call the function a bazillion times
 				var timeOut = false;
 				scroller.addListener('scrollend',function(){
-					if(!_self.paddings){
-						_self.setPaddings();
-					}
 					if(timeOut!==false){
 						clearTimeout(timeOut);
 					}
 					timeOut = setTimeout(function(){
+						if(!_self.paddings){
+							_self.setPaddings();
+						}
 						minimum=9999;
 
 						//Select closest item to the middle
@@ -52,13 +52,16 @@ var folderview = Ext.define('dekweker.view.Folder', {
 						}else{
 							console.log("Dont scroll");
 						}
-					},200);
+					},300);
 
 				});
 
 				//Set start of scroll behaviour
 				var first, last, newfirst, newlast, items;
 				scroller.addListener('scrollstart',function(){
+					if(timeOut!==false){
+						clearTimeout(timeOut);
+					}
 					//Calculate paddings
 					items = _self.getViewItems();
 					half = Ext.Viewport.getWindowWidth()/2;
