@@ -13,7 +13,7 @@ $base-color: #685848;
 @include sencha-toolbar;
 // @include sencha-toolbar-forms;
 @include sencha-indexbar;
-@include sencha-list;
+// @include sencha-list;
 @include sencha-layout;
 // @include sencha-carousel;
 // @include sencha-form;
@@ -24,7 +24,11 @@ $base-color: #685848;
 @include pictos-iconmask('icon-route');
 @include pictos-iconmask('icon-website');
 
-//Own styling
+/*
+ * Start our own styling
+ */
+
+ //Logo in the header
 .titleLogo{
 	display:block;
 	position:absolute;
@@ -36,17 +40,12 @@ $base-color: #685848;
 	background:url(../images/logo.png) no-repeat top left;
 }
 
+//Tabbar
 .x-tab-normal .x-button-label{
 	text-transform:uppercase;
 }
-//Retina styling
-@media only screen and (-webkit-min-device-pixel-ratio : 2), only screen and (min-device-pixel-ratio : 2) {
-	.titleLogo{
-		background:url(../images/logo@2x.png) no-repeat top left;
-		background-size:150px 31px;
-	}
 
-}
+//Folder/Pages styling
 .folder{
 	margin:0px 5px;
 }
@@ -54,7 +53,22 @@ $base-color: #685848;
 	height:95%;
 	margin:2.5% 0 2.5% 0;
 }
+//Modal styling
+.modal{
+	background: #000000;
+}
+.detailview{
+	background: #000000 url('../images/ajax-loader.gif') no-repeat 20px 20px;
+}
+//Closebutton for the modal
+.closeButton{
+	width:44px;
+	height:44px;
+	position: absolute;
+	right:-22px;
+	top:-22px;
 
+}
 //Messagebox styling
 .messageBoxKweker{
 	.x-innerhtml{
@@ -85,3 +99,11 @@ $base-color: #685848;
 	}
 }
 
+//Retina styling
+@media only screen and (-webkit-min-device-pixel-ratio : 2), only screen and (min-device-pixel-ratio : 2) {
+	.titleLogo{
+		background:url(../images/logo@2x.png) no-repeat top left;
+		background-size:150px 31px;
+	}
+
+}
