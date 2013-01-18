@@ -33,7 +33,7 @@ var folderview = Ext.define('dekweker.view.Folder', {
 						}
 					});
 					//Scroll to correct position
-					if(Math.abs(scroll)<2){
+					if(Math.abs(scroll)>2){
 						if(scroller.position.x+(-1*scroll)<0){
 							console.log("Scroll to beginning");
 							scroller.scrollTo(0,scroller.position.y,true);
@@ -53,6 +53,7 @@ var folderview = Ext.define('dekweker.view.Folder', {
 				var newlast;
 				var items;
 				scroller.addListener('scrollstart',function(){
+
 					//Calculate paddings
 					items = _self.getViewItems();
 					half = Ext.Viewport.getWindowWidth()/2;

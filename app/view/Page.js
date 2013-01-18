@@ -1,6 +1,7 @@
 var pageview = Ext.define('dekweker.view.Page', {
 	xtype:'pageview',
 	extend:'Ext.DataView',
+	paddings:false,
 	config: {
 		fullscreen: false,
 		itemTpl:
@@ -14,43 +15,49 @@ var pageview = Ext.define('dekweker.view.Page', {
 				//Declare variables
 				var scroller = this.getScrollable().getScroller();
 				var half = Ext.Viewport.getWindowWidth()/2;
-				var best;
-				var minimum=8888;
-				var scroll;
+				var best,minimum,scroll;
 
 				//Set end of scroll behaviour
+				//For this we use a timer so it doesn't call the function a bazillion times
+				var timeOut = false;
 				scroller.addListener('scrollend',function(){
-					minimum=9999;
-
-					//Select closest item to the middle
-					Ext.Array.each(_self.getViewItems(),function(element, index, elements){
-						var el = $(element);
-						if(minimum>Math.abs(half-((el.offset().left+parseInt(el.css('padding-left').replace("px", ""),10))+el.width()/2))){
-							scroll =  Math.round(half-(el.offset().left+el.width()/2));
-							minimum = Math.abs(half-((el.offset().left+parseInt(el.css('padding-left').replace("px", ""),10))+el.width()/2));
-							console.log("Element number "+index+" is closest now");
-						}
-					});
-					//Scroll to correct position
-					if(scroll!==0){
-						if(scroller.position.x+(-1*scroll)<0){
-							console.log("Scroll to beginning");
-							scroller.scrollTo(0,scroller.position.y,true);
-						}else{
-							console.log("Scroll To ",scroller.position.x+(-1*scroll));
-							scroller.scrollTo(scroller.position.x+(-1*scroll),scroller.position.y,true);
-						}
-					}else{
-						console.log("Dont scroll");
+					if(!_self.paddings){
+						_self.setPaddings();
 					}
+					if(timeOut!==false){
+						clearTimeout(timeOut);
+					}
+					timeOut = setTimeout(function(){
+						minimum=9999;
+
+						//Select closest item to the middle
+						Ext.Array.each(_self.getViewItems(),function(element, index, elements){
+							var el = $(element);
+							if(minimum>Math.abs(half-((el.offset().left+parseInt(el.css('padding-left').replace("px", ""),10))+el.width()/2))){
+								scroll =  Math.round(half-(el.offset().left+el.width()/2));
+								minimum = Math.abs(half-((el.offset().left+parseInt(el.css('padding-left').replace("px", ""),10))+el.width()/2));
+								console.log("Element number "+index+" is closest now");
+							}
+						});
+						//Scroll to correct position
+						if(Math.abs(scroll)>2){
+							var position = scroller.position.x+(-1*scroll);
+							if(position<0){
+								console.log("Scroll to beginning");
+								scroller.scrollTo(0,scroller.position.y,true);
+							}else{
+								console.log("Scroll To ",position);
+								scroller.scrollTo(position,scroller.position.y,true);
+							}
+						}else{
+							console.log("Dont scroll");
+						}
+					},200);
+
 				});
 
 				//Set start of scroll behaviour
-				var first;
-				var last;
-				var newfirst;
-				var newlast;
-				var items;
+				var first, last, newfirst, newlast, items;
 				scroller.addListener('scrollstart',function(){
 					//Calculate paddings
 					items = _self.getViewItems();
@@ -64,6 +71,7 @@ var pageview = Ext.define('dekweker.view.Page', {
 						last=newlast;
 						$(items[0]).css('padding', '0 0 0 '+(half-last)+'px');
 						$(items[items.length-1]).css('padding', '0 '+(half-last)+'px 0 0');
+
 					}
 				});
 			}
@@ -79,5 +87,7 @@ var pageview = Ext.define('dekweker.view.Page', {
 		$(this.getViewItems()[0]).css('padding', '0 0 0 '+(half-last)+'px');
 		$(this.getViewItems()[this.getViewItems().length-1]).css('padding', '0 '+(half-last)+'px 0 0');
 
+		//Status of paddings set
+		this.paddings = true;
 	}
 });
