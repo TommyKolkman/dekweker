@@ -1,5 +1,12 @@
 *.DS_Store*
 *.sass-cache*
 *.css
-
 *.css
+build/*
+build/dekweker/production/*
+
+resources/css/app.css
+
+resources/css/app.css
+
+archive/*

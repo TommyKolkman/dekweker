@@ -5,7 +5,7 @@ var folderview = Ext.define('dekweker.view.Folder', {
 	config: {
 		fullscreen: false,
 		itemTpl:
-			'<tpl for="pages"><div><tpl if="xindex==1"><img src="{url}" class="folderImage"/></tpl></div></tpl>',
+			'<tpl for="pages"><div><tpl if="xindex==1"><img src="{url}" class="<tpl if="width&gt;height">wide </tpl>folderImage"/></tpl></div></tpl>',
 		store:'Folders',
 		itemCls:'folder',
 		listeners:{
