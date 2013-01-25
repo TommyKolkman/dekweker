@@ -6,7 +6,7 @@ Ext.define('dekweker.store.Folders',{
 		autoLoad:true,
 		proxy:{
 			type: 'jsonp',
-			url : 'http://zwaarcontrast.nl/dekweker/json.php',
+			url : 'http://dekweker.pfoapps.nl/json-output/?type=folders',
 			reader:{
 				type:'json',
 				rootProperty:'folders'

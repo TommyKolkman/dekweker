@@ -1,0 +1,9 @@
+Ext.define('dekweker.model.Adress',{
+	extend:'Ext.data.Model',
+	config:{
+		fields:[
+			{name:'place',type:'string'},
+			{name:'address',type:'string'}
+		]
+	}
+});

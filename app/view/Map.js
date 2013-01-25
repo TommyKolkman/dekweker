@@ -1,5 +1,6 @@
 var mapview = Ext.define('dekweker.view.Map', {
 	xtype:'mapview',
+	id:'mapview',
 	extend:'Ext.Map',
 	requires: [
 		'Ext.Map'
@@ -83,7 +84,12 @@ var mapview = Ext.define('dekweker.view.Map', {
 		});
 	},
 	plotRoute: function(start){
-		var end = "De Kweker, Jan van Galenstraat 4, 1051 KL Amsterdam";
+		var end;
+		if((this.direction)){
+			end = (this.direction);
+		}else{
+			end = "De Kweker, Jan van Galenstraat 4, 1051 KL Amsterdam";
+		}
 		var request = {
 			origin:start,
 			destination:end,
@@ -95,5 +101,8 @@ var mapview = Ext.define('dekweker.view.Map', {
 				directionsDisplay.setDirections(response);
 			}
 		});
-	}
+	},
+	setDirection:function(dir){
+        this.direction = dir;
+    }
 });

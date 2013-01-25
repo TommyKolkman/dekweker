@@ -48,7 +48,6 @@ Ext.define('dekweker.controller.Controller', {
 			images[index] = new Image();
 			$(images[index]).load(function(e){
 				store.add(item);
-				console.log("Loaded",item.url);
 			});
 			images[index].src = item.url;
 		});

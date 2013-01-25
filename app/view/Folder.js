@@ -11,7 +11,6 @@ var folderview = Ext.define('dekweker.view.Folder', {
 		listeners:{
 			initialize:function(){
 				var _self =this;
-
 				//Declare variables
 				var scroller = this.getScrollable().getScroller();
 				var half = Ext.Viewport.getWindowWidth()/2;

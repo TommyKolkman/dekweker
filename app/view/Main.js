@@ -10,13 +10,11 @@ Ext.define('dekweker.view.Main', {
         listeners:{
             activeitemchange: function( ob, value, oldValue, eOpts ){
                 //Check which card we are gonna switch to
-                if(value.id!=='folder' && value.id !=='route' && value.id !=='pages'){
+                if(value.id!=='folder' && value.id !=='route' && value.id !=='pages' && value.id!=='numbers' && value.id !=='adresses'){
                     this.setActiveItem(oldValue);
                     
                     //Handling of the buttons in the menu
-                    if(value.id=='call'){
-                        window.location = ('tel:0206063606');
-                    }else if(value.id=='mail'){
+                    if(value.id=='mail'){
                         window.location = ('mailto:info@dekweker.nl');
                     }else if(value.id =='site'){
                         window.open('http://kweker.nl/');
@@ -24,7 +22,7 @@ Ext.define('dekweker.view.Main', {
                     return false;
                 }else{
                     var button = Ext.getCmp('backbutton');
-                    if(value.id=='route'||value.id=='pages'){
+                    if(value.id=='route'||value.id=='pages'||value.id=='adresses'||value.id=='numbers'){
                        button.show();
                     }else{
                         button.hide();
@@ -39,6 +37,7 @@ Ext.define('dekweker.view.Main', {
                 });
                 Ext.getCmp('tabBar').getComponent(0).hide();
                 Ext.getCmp('tabBar').getComponent(1).hide();
+                Ext.getCmp('tabBar').getComponent(6).hide();
             }
         },
         tabBar: {
@@ -85,9 +84,9 @@ Ext.define('dekweker.view.Main', {
                 }
             },
             {
-                id:'call',
+                id:'numbers',
+                xtype:'numberview',
                 title: 'Bel ons',
-                xtype: 'panel',
                 iconCls:'icon-belons'
             },
             {
@@ -101,8 +100,14 @@ Ext.define('dekweker.view.Main', {
                 iconCls: 'icon-website'
             },
             {
-                id:'route',
+                id:'adresses',
+                xtype:'adressview',
                 title: 'Route',
+                iconCls: 'icon-route'
+            },
+            {
+                id:'route',
+                title: 'Route planner',
                 iconCls: 'icon-route',
                 xtype: 'routeview'
             }

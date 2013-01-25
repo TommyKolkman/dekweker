@@ -10,6 +10,7 @@ var pageview = Ext.define('dekweker.view.Page', {
 		itemCls:'folder',
 		listeners:{
 			initialize:function(){
+				
 				//Select closest item to the middle
 				var _self =this;
 
@@ -47,7 +48,7 @@ var pageview = Ext.define('dekweker.view.Page', {
 								//console.log("Scroll to beginning");
 								scroller.scrollTo(0,scroller.position.y,true);
 							}else{
-								console.log("Scroll To ",position);
+
 								scroller.scrollTo(position,scroller.position.y,true);
 							}
 						}else{

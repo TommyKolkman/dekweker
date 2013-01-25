@@ -14,11 +14,10 @@ Ext.application({
     ],
 
 
-    views: ['Main','Folder','Page','Detail','Map',"Route"],
+    views: ['Main','Folder','Page','Detail','Map',"Route","Numbers","Adresses"],
     controllers: ['Controller'],
-    models:['Folder','Page'],
-    stores:['Folders','Pages'],
-
+    models:['Folder','Page','Number','Adress'],
+    stores:['Folders','Pages',"Adresses","Numbers"],
 
     icon: {
         '57': 'resources/icons/Icon.png',

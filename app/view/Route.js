@@ -1,6 +1,7 @@
 var routeview = Ext.define('dekweker.view.Route', {
     extend:'Ext.Container',
     xtype:'routeview',
+    direction:'',
     config:{
         layout: 'vbox',
         items: [
