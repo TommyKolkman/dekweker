@@ -10,7 +10,7 @@ var pageview = Ext.define('dekweker.view.Page', {
 		itemCls:'folder',
 		listeners:{
 			initialize:function(){
-				
+				this.refresh();
 				//Select closest item to the middle
 				var _self =this;
 

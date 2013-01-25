@@ -42,6 +42,7 @@ Ext.define('dekweker.controller.Controller', {
 		var _self = this;
 		var store = Ext.getStore('Pages');
 		var images = [];
+		store.removeAll();
 
 		//Loop through the pages
 		Ext.Array.each(record.get('pages'),function(item, index, elements){
