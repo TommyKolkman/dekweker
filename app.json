@@ -47,7 +47,7 @@
             "update": "delta"
         },
         {  
-            "path": "cordova-2.3.0.js"  
+            "path": "resources/libs/cordova-2.3.0.js"  
         },  
         {
             "path": "app.js",
@@ -140,7 +140,7 @@
         "product": "touch",
         "minVersion": 3,
         "debug": false,
-        "logger": false
+        "logger": "false"
     },
 
     /**
