@@ -63975,6 +63975,7 @@ Ext.define('dekweker.controller.Controller', {
 		var _self = this;
 		var store = Ext.getStore('Pages');
 		var images = [];
+		store.removeAll();
 
 		//Loop through the pages
 		Ext.Array.each(record.get('pages'),function(item, index, elements){
@@ -64240,7 +64241,7 @@ var pageview = Ext.define('dekweker.view.Page', {
 		itemCls:'folder',
 		listeners:{
 			initialize:function(){
-				
+				this.refresh();
 				//Select closest item to the middle
 				var _self =this;
 
