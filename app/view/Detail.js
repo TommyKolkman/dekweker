@@ -39,6 +39,10 @@ Ext.define('dekweker.view.Detail', {
 					}
 				});
 				this.add(closeButton);
+			},
+			doubletap: {
+				fn: function() {this.destroy();},
+				element: 'element'
 			}
 		},
 		items:[
