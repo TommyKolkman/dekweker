@@ -29,8 +29,10 @@ var mapview = Ext.define('dekweker.view.Map', {
 				directionsDisplay.setMap(map);
 			},
 			painted: function(element, options){
+				//Show loading mask
+				var mask = Ext.Viewport.mask({ xtype: 'loadmask',indicator:true, message:"Locatie bepalen..." });
 				if (navigator.geolocation){
-					navigator.geolocation.getCurrentPosition(_self.translateNavigator, _self.handle_location_error);
+					navigator.geolocation.getCurrentPosition(_self.translateNavigator, _self.handle_location_error,{ timeout: 7000 });
 				}else{
 					_self.askLocation();
 				}
@@ -56,6 +58,8 @@ var mapview = Ext.define('dekweker.view.Map', {
 						cls:'messageBoxKweker',
 						fn: function(buttonId) {
 							if(buttonId === 'ok'){
+								//Hide
+								var mask = Ext.Viewport.unmask();
 								_self.plotRoute(currentLatLng);
 							}else{
 								_self.askLocation();
@@ -80,6 +84,8 @@ var mapview = Ext.define('dekweker.view.Map', {
 			fn: function(buttonId,value) {
 				var start = value;
 				_self.plotRoute(start);
+				//Hide
+				var mask = Ext.Viewport.unmask();
 			}
 		});
 	},
