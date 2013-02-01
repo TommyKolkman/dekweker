@@ -18,6 +18,7 @@ $base-color: #685848;
 // @include sencha-carousel;
 // @include sencha-form;
 // @include sencha-msgbox;
+@include sencha-loading-spinner;
 
 @include pictos-iconmask('icon-belons');
 @include pictos-iconmask('icon-mailons');
@@ -28,6 +29,9 @@ $base-color: #685848;
  * Start our own styling
  */
 
+.x-msgbox-title{
+	height:2.3em!important;
+}
  //Logo in the header
 .titleLogo{
 	display:block;
@@ -107,7 +111,7 @@ $base-color: #685848;
 }
 
 //Retina styling
-@media only screen and (-webkit-min-device-pixel-ratio : 2), only screen and (min-device-pixel-ratio : 2) {
+@media only screen and (-webkit-min-device-pixel-ratio : 1.5), only screen and (min-device-pixel-ratio : 1.5) {
 	.titleLogo{
 		background:url(../images/logo@2x.png) no-repeat top left;
 		background-size:150px 31px;

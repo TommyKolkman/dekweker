@@ -44,13 +44,22 @@ Ext.define('dekweker.controller.Controller', {
 		var images = [];
 		store.removeAll();
 
+		//Show loading mask
+		var mask = Ext.Viewport.mask({ xtype: 'loadmask',indicator:true, message:"Laden..." });
+
+		var loaded =0;
 		//Loop through the pages
 		Ext.Array.each(record.get('pages'),function(item, index, elements){
 			images[index] = new Image();
 			$(images[index]).load(function(e){
 				store.add(item);
+				loaded++;
+				if(loaded == elements.length-1){
+					Ext.Viewport.unmask();
+				}
 			});
 			images[index].src = item.url;
+			
 		});
 		Ext.getCmp('main').setActiveItem(1);
 	},
