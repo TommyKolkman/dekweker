@@ -1,0 +1,120 @@
+//Variables
+$base-color: #685848;
+
+//Import
+@import 'sencha-touch/default/all';
+
+//Modules
+@include sencha-panel;
+@include sencha-buttons;
+// @include sencha-sheet;
+// @include sencha-picker;
+@include sencha-tabs;
+@include sencha-toolbar;
+// @include sencha-toolbar-forms;
+// @include sencha-indexbar;
+@include sencha-list;
+@include sencha-layout;
+// @include sencha-carousel;
+// @include sencha-form;
+// @include sencha-msgbox;
+@include sencha-loading-spinner;
+
+@include pictos-iconmask('icon-belons');
+@include pictos-iconmask('icon-mailons');
+@include pictos-iconmask('icon-route');
+@include pictos-iconmask('icon-website');
+
+/*
+ * Start our own styling
+ */
+
+.x-msgbox-title{
+	height:2.3em!important;
+}
+ //Logo in the header
+.titleLogo{
+	display:block;
+	position:absolute;
+	top:9px;
+	left:50%;
+	margin-left:-75px;
+	width:150px;
+	height:31px;
+	background:url(../images/logo.png) no-repeat top left;
+}
+
+//Tabbar
+.x-tab-normal .x-button-label{
+	text-transform:uppercase;
+}
+
+//Folder/Pages styling
+.folder{
+	margin:0px 5px;
+}
+.folderImage{
+	height:95%;
+	margin:2.5% 0 2.5% 0;
+	&.wide{
+		height:64%;
+		margin-top:18%;
+	}
+}
+//Modal styling
+.modal{
+	background: #000000;
+}
+.detailview{
+	background: #000000;
+}
+.loading{
+	background: url(../images/ajax-loader.gif) no-repeat center center;
+}
+//Closebutton for the modal
+.closeButton{
+	width:44px;
+	height:44px;
+	position: absolute;
+	right:-22px;
+	top:-22px;
+
+}
+//Messagebox styling
+.messageBoxKweker{
+	.x-innerhtml{
+		color:white;
+		text-align: center;
+	}
+	input{
+		margin: 0 auto;
+		width:200px;
+		display: block;
+	}
+}
+
+//Adding wood background for portrait and landscape
+.main{
+	background-size:cover;
+}
+@media only screen and (orientation:landscape){
+	.main{
+		background:url(../images/wood-bg-landscape.jpg) no-repeat top left;
+		background-size:cover;
+	}
+}
+@media only screen and (orientation:portrait){
+	.main{
+		background:url(../images/wood-bg-portrait.jpg) no-repeat top left;
+		background-size:cover;
+	}
+}
+
+//Retina styling
+@media only screen and (-webkit-min-device-pixel-ratio : 1.5), only screen and (min-device-pixel-ratio : 1.5) {
+	.titleLogo{
+		background:url(../images/logo@2x.png) no-repeat top left;
+		background-size:150px 31px;
+	}
+
+}

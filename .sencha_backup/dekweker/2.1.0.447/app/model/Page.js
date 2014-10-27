@@ -1,0 +1,10 @@
+Ext.define('dekweker.model.Page',{
+	extend:'Ext.data.Model',
+	config:{
+		fields:[
+			{name:'width',type:'int'},
+			{name:'height',type:'int'},
+			{name:'url',type:'string'}
+		]
+	}
+});

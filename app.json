@@ -31,12 +31,21 @@
      *                                      //    cached inside localStorage until this value is changed.
      *                                      //  - "delta" to enable over-the-air delta update for this file
      *                                      //  - "full" means full update will be made when this file changes
+     *          "x-bootstrap": true         // (Optional)
+     *                                      // Indicates a development mode only dependency.  
+     *                                      // These files will not be copied into the build directory or referenced
+     *                                      // in the generate app.json manifest for the micro loader.
      *
      *      }
      */
     "js": [
         {
-            "path": "touch/sencha-touch.js"
+            "path": "touch/sencha-touch.js",
+            "x-bootstrap": true
+        },
+        {
+            "path": "bootstrap.js",
+            "x-bootstrap": true
         },
         {
             "path": "resources/libs/jquery.js"
@@ -109,7 +118,7 @@
      * File / directory name matchers to ignore when copying to the builds, must be valid regular expressions
      */
     "ignore": [
-        "\.svn$"
+        "svn$"
     ],
 
     /**
@@ -119,16 +128,14 @@
     "archivePath": "archive",
 
     /**
-     * Default paths to build this application to for each environment
+     * List of package names to require for the cmd build process
      */
-    "buildPaths": {
-        "testing": "build/testing",
-        "production": "build/production",
-        "package": "build/package",
-        "native": "build/native"
-    },
+    "requires": [
+    ],
 
     /**
+<<<<<<< Generated
+=======
      * Build options
      */
     "buildOptions": {
@@ -139,6 +146,7 @@
     },
 
     /**
+>>>>>>> Custom
      * Uniquely generated id for this application, used as prefix for localStorage keys.
      * Normally you should never change this value.
      */

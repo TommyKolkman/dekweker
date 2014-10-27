@@ -52,15 +52,52 @@ $base-color: #685848;
 //Folder/Pages styling
 .folder{
 	margin:0px 5px;
-}
-.folderImage{
-	height:95%;
-	margin:2.5% 0 2.5% 0;
-	&.wide{
-		height:64%;
-		margin-top:18%;
+
+	div {
+
+		&:first-child{
+
+			height: 100%;
+
+		}
+
 	}
+
+	.folderImage{
+		
+		height: 95%;
+		display: block;
+		margin:2.5% 0 2.5% 0;
+		
+		&.wide {
+			height: 64%;
+			margin-top: 18%;
+		}
+	}
+
 }
+
+// .folder {
+
+// 	height: 100%;
+// 	margin: 0px 5px;
+
+// 	div {
+
+// 		height: 100%;
+// 		padding-top: 20px;
+// 		vertical-align: middle;
+
+// 		img {
+			
+// 			height: 90% !important;
+
+// 		}
+
+// 	}
+
+// }
+
 //Modal styling
 .modal{
 	background: #000000;
